@@ -1,0 +1,29 @@
+.tag {
+  padding-block: 2px;
+  @apply bg-gray-200 rounded px-2 text-sm text-gray-700 font-medium;
+}
+
+.tag-react {
+  @apply bg-blue-200;
+}
+.tag-css {
+  @apply bg-red-200;
+}
+.tag-javascript {
+  @apply bg-yellow-200;
+}
+.tag-nodejs {
+  @apply bg-green-200;
+}
+.tag-styled-components {
+  @apply bg-purple-200;
+}
+.tag-sass {
+  @apply bg-pink-200;
+}
+.tag-bootstrap {
+  @apply bg-indigo-200;
+}
+.tag-typescript {
+  @apply bg-blue-300;
+}

@@ -1,0 +1,51 @@
+.sidebarWrapper {
+  @apply bg-gray-100 h-screen flex flex-col;
+  flex: 0 0 12rem;
+  min-height: 100vh;
+}
+
+.title {
+  @apply flex items-center text-sm font-semibold text-gray-700 py-4 px-2;
+  @apply hover:bg-gray-200 transition-all duration-300 ease-in-out;
+  @apply cursor-pointer;
+}
+
+.title span {
+  @apply bg-gray-500 mr-2 opacity-60 rounded text-white text-xs font-bold px-1;
+}
+
+.nav {
+  @apply flex flex-col flex-1;
+}
+
+.topNav {
+  @apply border-b-2 border-gray-300;
+  border-bottom-width: 1px;
+}
+
+.navItem div {
+  @apply flex items-center text-sm text-gray-500 px-2 py-1;
+  @apply hover:bg-gray-200 transition-all duration-300 ease-in-out;
+  @apply cursor-pointer;
+}
+
+.navItem .active div {
+  @apply bg-gray-200 hover:bg-gray-300;
+}
+
+.navItem div i {
+  @apply mr-2;
+}
+
+.navItem div i + span {
+  @apply font-semibold;
+}
+
+.bottomNav {
+  @apply flex-1 my-4;
+}
+
+.label > * {
+  @apply ml-2 p-1 text-gray-400 text-xs hover:bg-gray-200 rounded hover:text-gray-600 transition-all duration-300 ease-in-out;
+  @apply cursor-pointer;
+}

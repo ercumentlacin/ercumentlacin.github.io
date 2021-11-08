@@ -1,0 +1,53 @@
+.dropdownWrapper {
+  @apply relative;
+}
+
+.dropdownButton {
+  @apply relative z-20 flex items-baseline justify-between rounded-sm hover:bg-gray-100 w-48 px-2 cursor-pointer;
+}
+
+.icon {
+  @apply relative w-5 h-5;
+}
+.icon:before,
+.icon:after {
+  content: '';
+  @apply absolute transform top-2 left-3 bg-gray-900 transition duration-300 ease-in-out;
+  width: 3px;
+  height: 11px;
+}
+.icon::before {
+  transform: translateX(-6px) rotate(-45deg);
+}
+.icon::after {
+  @apply translate-x-0 rotate-45;
+}
+
+.dropdownContent {
+  @apply overflow-y-hidden absolute z-10 top-full left-0 w-full;
+}
+.dropdownContent ul {
+  @apply hidden m-0 py-1 bg-gray-300 transform translate-y-full list-none transition-all duration-200;
+}
+.dropdownContent li {
+  @apply flex items-center  px-2;
+}
+.dropdownContent li:hover {
+  @apply flex items-center cursor-pointer transition-all duration-200 bg-gray-200;
+}
+.dropdownContent li:not(:last-child) {
+  @apply mb-2;
+}
+.dropdownContent li > * {
+  @apply flex items-center w-full  text-base;
+}
+
+.dropdownWrapper input:checked ~ .dropdownContent ul {
+  @apply flex flex-col transform translate-y-0;
+}
+.dropdownWrapper input:checked ~ .dropdownButton .icon::before {
+  @apply transform -translate-x-1 -rotate-45 scale-y-150;
+}
+.dropdownWrapper input:checked ~ .dropdownButton .icon::after {
+  @apply transform -translate-x-1 rotate-45 scale-y-150;
+}
