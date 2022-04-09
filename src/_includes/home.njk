@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+<h1 class='home-title'>{{ title }}</h1>
+
+<article>
+{% for post in posts  %}
+  <h2>
+    <a href="{{ post.url }}">{{ post.data.title }}</a>
+  </h2>
+  <section>
+    <time datetime="{{ post.data.date | timeFormat }}">
+      {{ post.data.date | timeFormat }}
+    </time>
+  </section>
+{% endfor %}
+</article>
+{% if posts.length > 5 %}
+  {% include 'partials/pagi.njk' %}
+{% endif %}
