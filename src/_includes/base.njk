@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {% if description %}
+      <meta name="description" content="{{description}}"/>
+    {% endif %}
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <link href="https://unpkg.com/prismjs@1.27.0/themes/prism-tomorrow.css" rel="stylesheet" />
+    <link 
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" 
+    />
+
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div class="container-area">
+
+      {% include "menu.njk" %}
+
+
+      <main>
+        {# <h1>{{ title }}</h1> #}
+        {{ content | safe }}
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/prismjs@1.27.0/components/prism-core.min.js"></script>
+	  <script src="https://unpkg.com/prismjs@1.27.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+      Prism.hooks.add('before-sanity-check', function (env) {
+          env.code = env.element.innerText;
+      });
+    </script>
+  </body>
+</html>
