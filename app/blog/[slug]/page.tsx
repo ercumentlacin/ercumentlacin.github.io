@@ -1,8 +1,10 @@
 /* eslint-disable react/no-danger */
+import BackIcon from '@/components/icons/BackIcon';
 import WithTransition from '@/components/layout/WithTransition';
 import { Mdx } from '@/components/mdx';
 import { allBlogs } from 'contentlayer/generated';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
 import slugify from 'slugify';
@@ -69,6 +71,14 @@ export default async function Blog({ params }: Props) {
           __html: JSON.stringify(post.structuredData),
         }}
       />
+      <div className="fixed text-main-300 left-[85%] top-[92%] sm:left-5 sm:top-5">
+        <Link
+          href="/blog"
+          className="flex items-center gap-2 p-2 transition duration-300 ease-in-out rounded-full shadow-md border-white/10 bg-main-900/30 backdrop-blur-sm-sm w-max hover:bg-main-900/40"
+        >
+          <BackIcon width={20} height={20} aria-labelledby="back" />
+        </Link>
+      </div>
       <h1>
         <Balancer>{post.title}</Balancer>
       </h1>
