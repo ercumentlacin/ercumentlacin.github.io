@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ghost-accent-color: #ff1a75;
+  --red: red;
+}
+
+@layer utilities {
+  .change {
+    color: transparent;
+  }
+  .border-accent {
+    @apply border-ghost-500;
+  }
+}
+
+body {
+  @apply flex flex-col min-h-screen antialiased text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900;
+}
+
+.container-area {
+  @apply flex-grow container md:max-w-2xl px-4 pt-16 mx-auto;
+}
+
+.menu {
+  @apply flex items-center mb-8;
+}
+
+.menu > li {
+  @apply text-sm md:text-base text-slate-600 dark:text-slate-400;
+}
+
+.menu > li + span {
+  @apply px-1 text-slate-400;
+}
+
+.menu > li > a {
+  @apply hover:text-slate-800 dark:hover:text-slate-200 hover:underline;
+}
+
+h1.home-title {
+  @apply inline-block text-3xl md:text-4xl border-b-4 border-accent pb-1 font-extrabold transform -rotate-1;
+}
+
+.description {
+  @apply mt-6 text-lg md:text-xl;
+}
+
+main {
+  @apply mt-12 space-y-6;
+}
+
+article > h2 {
+  @apply text-lg md:text-xl font-semibold;
+}
+
+article > h2 + section {
+  @apply text-xs md:text-sm font-medium text-slate-400 dark:text-slate-600;
+}
+
+.back-link {
+  @apply fixed top-0 left-0 p-4 z-50 min-w-full bg-white md:bg-white/0 dark:bg-slate-900 dark:md:bg-slate-900/0;
+}
+
+.back-link a {
+  @apply flex justify-start items-center p-1 text-sm md:p-2 md:text-base max-w-min rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800;
+}
+.back-link a svg {
+  @apply w-3 h-3 mr-2;
+}
+
+.post-container h1 {
+  @apply mt-2 mb-12 text-3xl md:text-4xl font-extrabold md:text-center;
+}
+
+code:not([class*="language-"]) {
+  padding: 0.2em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background: #272822;
+}
+
+.token.deleted {
+  background-color: hsl(350deg 100% 88% / 47%);
+}
+.token.inserted {
+  background-color: hsl(120deg 73% 75% / 35%);
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+  display: block;
+}
+
+.pagination-wrapper {
+  @apply flex justify-center;
+}
+
+.pagination ol {
+  @apply flex list-none;
+}
+
+.pagination ol li {
+  @apply flex justify-center items-center cursor-not-allowed text-gray-800;
+}
+
+.pagination ol a:not(:disabled) {
+  @apply block py-1.5 px-3  border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-50 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none;
+}
+.pagination ol a:disabled {
+  @apply relative block py-1.5 px-3  border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none;
+}
+
+[aria-current] {
+  @apply cursor-not-allowed !text-ghost-500;
+}
+[aria-current]:hover {
+  @apply bg-transparent !important;
+}
+
+section.time {
+  @apply flex space-x-2 max-w-max mx-auto text-xs md:text-base text-slate-500 dark:text-slate-400 font-medium;
+}
+
+.social-media-container li {
+  list-style: none;
+}
+
+.social-media-container a {
+  @apply transition-all duration-200 ease-in-out inline-block;
+}
+
+.social-media-container a:hover {
+  filter: brightness(0.8);
+}
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply transition-all underline-offset-2 decoration-[0.1em];
+}
+
+.prose .anchor:after {
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose pre {
+  @apply border border-neutral-800 bg-neutral-900;
+}
+
+.prose code {
+  @apply px-1 py-0.5 border border-neutral-100 dark:border-neutral-800 rounded-lg bg-neutral-100 dark:bg-neutral-900;
+}
+
+.prose pre code {
+  @apply p-0;
+  border: initial;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply m-0;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply text-neutral-50;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.prose .callout > p {
+  margin: 0 !important;
+}
+
+[data-rehype-pretty-code-fragment] code {
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
+  counter-reset: line;
+  box-decoration-break: clone;
+}
+[data-rehype-pretty-code-fragment] .line {
+  @apply py-1;
+}
+[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: gray;
+}
+[data-rehype-pretty-code-fragment] .line--highlighted {
+  @apply bg-slate-500 bg-opacity-10;
+}
+[data-rehype-pretty-code-fragment] .line-highlighted span {
+  @apply relative;
+}
+[data-rehype-pretty-code-fragment] .word--highlighted {
+  @apply rounded-md bg-slate-500 bg-opacity-10 p-1;
+}
+[data-rehype-pretty-code-title] {
+  @apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c];
+}
+[data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-t-none border-t-0;
+}
+
+.prose {
+  color: #b0a99f;
+}
+
+.prose :where(h2):not(:where([class~="not-prose"] *)) {
+  color: rgb(232, 230, 227);
+}

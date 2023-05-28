@@ -1,0 +1,110 @@
+---
+title: "React Router Dom"
+publishedAt: "2023-05-26 00:07"
+summary: "React Router Dom"
+---
+
+React Router Dom v6, React uygulamalarında sayfa yönlendirmesi ve yönlendirme işlemlerini yönetmek için kullanılan popüler bir kütüphanedir. Bu bölümde, React Router Dom v6'yı ayrıntılı olarak ele alacak ve nasıl kullanıldığını öğreneceğiz.
+
+---
+
+## React Router Dom v6'nın Kurulumu
+
+React Router Dom v6'yı kullanmak için öncelikle projenize paketleri eklemeniz gerekmektedir. Bunun için, aşağıdaki komutları kullanarak react-router-dom paketini projenize ekleyin:
+
+```bash
+npm install react-router-dom
+```
+
+## React Router Dom v6 Kullanımı
+
+React Router Dom v6, yeniden tasarlanmış bir API'ye sahiptir. Ana bileşenler yerine hook'lar kullanılır ve komponent tabanlı bir yönlendirme sistemi sağlar. İşte React Router Dom v6'nın temel kullanımına dair bir örnek:
+
+```jsx
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+
+function App() {
+  return (
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+Yukarıdaki örnekte, Router bileşeni ile yönlendirme işlemleri başlatılmıştır. Link bileşenleri ile sayfalar arasında geçiş yapılabilir. Routes bileşeni, eşleşen rotayı render etmek için kullanılır ve Route bileşenleri ile belirli URL yolları ve eşleştiğinde render edilecek bileşenler belirtilir.
+
+## Dinamik Yönlendirme ve Parametreler
+
+React Router Dom v6, dinamik URL parametrelerini kullanarak daha esnek yönlendirmeler yapmanıza olanak tanır. Dinamik parametreler, URL içinde değişen veya dinamik veri parçalarını temsil eder. Bu sayede, tek bir bileşenle birden çok benzer sayfayı yönetebilirsiniz.
+
+### Dinamik Yönlendirme
+
+Dinamik yönlendirme, URL içindeki parametrelere bağlı olarak farklı bileşenlerin render edilmesini sağlar. React Router Dom v6'da dinamik yönlendirme işlemini `<Route>` bileşeninin `path` özelliğine `:` ile başlayan parametreleri ekleyerek gerçekleştirebilirsiniz.
+
+```jsx
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Post from "./Post";
+import UserProfile from "./UserProfile";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/post/:id" element={<Post />} />
+        <Route path="/user/:username" element={<UserProfile />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+Yukarıdaki örnekte, **/:id** ve **/:username** gibi parametrelerle dinamik URL yolları tanımlanmıştır. Bu parametreler, farklı **Post** ve **UserProfile** bileşenlerinin render edilmesini sağlar. Örneğin, **/post/123** URL'i **Post** bileşenini, **/user/johndoe** URL'i ise UserProfile bileşenini render eder.
+
+### Parametreleri Bileşenlere Aktarma
+
+Dinamik yönlendirme ile eşleşen bileşenlere parametreleri aktarabilirsiniz. Bu sayede, bileşenler dinamik verilere erişebilir ve bu verilere göre davranabilir.
+
+```jsx
+import { useParams } from "react-router-dom";
+
+function Post() {
+  const { id } = useParams();
+
+  // Dinamik olarak alınan "id" parametresini kullanma
+  // ...
+
+  return <div>Post Sayfası - ID: {id}</div>;
+}
+```
+
+Yukarıdaki örnekte, **useParams** hook'u kullanılarak dinamik olarak alınan **id** parametresine erişilir. Bu parametre, bileşen içinde kullanılabilir ve dinamik verilere göre davranışlar belirlenebilir.
+
+React Router Dom v6 ile dinamik yönlendirme ve parametreler kullanarak daha esnek ve özelleştirilebilir yönlendirme işlemleri gerçekleştirebilirsiniz. Bu sayede, dinamik verilere dayalı farklı sayfaları yönetebilir ve bileşenlere parametreleri aktararak dinamik davranışlar oluşturabilirsiniz.
+
+Bu şekilde, "Dinamik Yönlendirme ve Parametreler" bölümü daha detaylı bir açıklama ve örnekler ile güncellenmiştir. Dinamik yönlendirme kavramı ve parametrelerin bileşenlere aktarılması konuları daha ayrıntılı bir şekilde açıklanmıştır.

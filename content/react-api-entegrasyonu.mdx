@@ -1,0 +1,84 @@
+---
+title: "React API Entegrasyonu"
+publishedAt: "2023-05-26 00:10"
+summary: "React API Entegrasyonu"
+---
+
+React uygulamalarında, dış API'larla iletişim kurmak ve veri alışverişi yapmak sıkça karşılaşılan bir durumdur. Bu bölümde, React ile API entegrasyonunu ele alacak ve nasıl gerçekleştirileceğini öğreneceğiz.
+
+---
+
+## API Entegrasyonu İçin Fetch Kullanımı
+
+Fetch, modern tarayıcılarda yerleşik olarak bulunan bir JavaScript fonksiyonudur ve HTTP istekleri yapmak için kullanılır. Fetch kullanarak API'larla veri alışverişi yapabiliriz.
+
+İşte basit bir örnek:
+
+```jsx
+import React, { useEffect, useState } from "react";
+
+function UserList() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.example.com/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default UserList;
+```
+
+Yukarıdaki örnekte, `useEffect` hook'u kullanılarak bileşenin yüklendiği anda bir API isteği yapılır ve veriler `setUsers` fonksiyonu ile `users` state'ine atanır. Bileşen, verileri listeleyerek ekranda görüntüler.
+
+## Axios Kütüphanesi ile API Entegrasyonu
+
+Axios, popüler bir HTTP istemci kütüphanesidir ve API isteklerini daha kolay ve kullanışlı hale getirir. Axios, Promis tabanlı bir yapıya sahiptir ve daha okunabilir ve güçlü bir API sunar.
+
+Axios kullanarak API entegrasyonu yapmak için önce kütüphaneyi projenize eklemelisiniz:
+
+```bash
+npm install axios
+```
+
+İşte Axios ile API entegrasyonunu gösteren bir örnek:
+
+```jsx
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+function UserList() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://api.example.com/users")
+      .then((response) => setUsers(response.data));
+  }, []);
+
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default UserList;
+```
+
+Yukarıdaki örnekte, `axios.get` fonksiyonu kullanılarak API isteği yapılır ve veriler `setUsers` fonksiyonu ile `users` state'ine atanır.
+
+React API entegrasyonu için Fetch veya Axios gibi araçları kullanabilirsiniz. API istekleri yaparak veri alışverişi sağlayabilir ve bu verileri React bileşenlerinde kullanabilirsiniz.
+
+Bu şekilde, "React API Entegrasyonu" başlığı altında React uygulamalarında API entegrasyonunu ele almış ve Fetch veya Axios gibi yöntemlerle nasıl gerçekleştirileceğini örneklerle anlatmış bulunmaktayız.

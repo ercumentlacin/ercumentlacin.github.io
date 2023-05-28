@@ -1,0 +1,73 @@
+---
+title: "React Context"
+publishedAt: "2023-05-26 00:06"
+summary: "React Context"
+---
+
+React Context, bileşenler arasında verileri paylaşmak için kullanılan bir React özelliğidir. Bu özelliği kullanarak, verileri props geçişi olmadan bileşen ağacı boyunca iletebilirsiniz. Bu bölümde, React Context'i ayrıntılı olarak ele alacak ve nasıl kullanıldığını öğreneceğiz.
+
+---
+
+## Context Oluşturma
+
+React Context'i kullanmak için öncelikle bir context oluşturmanız gerekmektedir. Context oluşturmak için `createContext` fonksiyonunu kullanabilirsiniz. İşte bir örnek:
+
+```jsx
+import React from "react";
+
+const MyContext = React.createContext();
+
+export default MyContext;
+```
+
+Yukarıdaki örnekte, `createContext` fonksiyonu kullanılarak bir context oluşturulmuştur. Bu context, verileri paylaşmak için kullanılabilir.
+
+## Context Sağlayıcı ve Tüketici
+
+Oluşturulan context'i kullanabilmek için bir sağlayıcı (provider) bileşenine ve tüketici (consumer) bileşenine ihtiyaç vardır. Sağlayıcı bileşen, paylaşmak istediğiniz veriyi içerir ve tüketici bileşen, bu veriye erişim sağlar.
+
+```jsx
+import React from "react";
+import MyContext from "./MyContext";
+
+function App() {
+  return (
+    <MyContext.Provider value="Merhaba, React Context!">
+      <ChildComponent />
+    </MyContext.Provider>
+  );
+}
+
+function ChildComponent() {
+  return (
+    <MyContext.Consumer>{(value) => <div>{value}</div>}</MyContext.Consumer>
+  );
+}
+
+export default App;
+```
+
+Yukarıdaki örnekte, `MyContext.Provider` bileşeni, paylaşmak istediğimiz `value` verisini içerir. MyContext.Consumer bileşeni ise bu veriye erişmek için kullanılır. İçerisine bir fonksiyon alır ve bu fonksiyon, paylaşılan veriyi parametre olarak alarak kullanabilir.
+
+## Hooks ile Context Kullanma
+
+React Hooks ile context kullanmak için useContext hook'unu kullanabilirsiniz. Bu sayede, tüketici bileşeninde daha kolay bir şekilde context verilerine erişebilirsiniz.
+
+```jsx
+import React, { useContext } from "react";
+import MyContext from "./MyContext";
+
+function ChildComponent() {
+  const value = useContext(MyContext);
+
+  return <div>{value}</div>;
+}
+
+export default ChildComponent;
+```
+
+Yukarıdaki örnekte, `useContext` hook'u kullanılarak `MyContext` verisine erişim sağlanır. Bu veri value değişkenine atanır ve bileşende kullanılabilir hale gelir.
+
+React Context, bileşenler arasında veri paylaşımını kolaylaştırır ve props geçişiyle uğraşmayı azaltır. Bu sayede, uygulamanızın genel durumunu veya diğer paylaşılması gereken verileri kolayca iletebilirsiniz.
+
+Bu şekilde, "React Context" başlığı altında React Context'in ne olduğu, nasıl oluşturulduğu ve kullanıldığı detaylı bir şekilde açıklanmıştır. Örnek kod parçacıkları ve temel kullanım örnekleri ile React Context'in nasıl kullanıldığı anlatılmıştır.

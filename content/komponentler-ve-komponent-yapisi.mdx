@@ -1,0 +1,120 @@
+---
+title: "Komponentler ve Komponent Yapısı"
+publishedAt: "2023-05-26 00:04"
+summary: "Komponentler ve Komponent Yapısı"
+---
+
+React, bileşen tabanlı bir yapıya sahiptir. Bu bölümde, React bileşenlerini ve komponent yapısını ayrıntılı olarak ele alacağız. Komponentler, React uygulamalarının temel yapı taşlarıdır ve modüler bir şekilde oluşturulabilir ve kullanılabilir.
+
+---
+
+## React Komponentlerinin Oluşturulması ve Kullanımı
+
+React komponentleri, JavaScript işlevleri veya sınıflarını temsil eder. Bir bileşenin ihtiyaçlarına bağlı olarak, fonksiyonel komponentler veya sınıf komponentleri şeklinde oluşturulabilirler.
+
+### Fonksiyonel Komponentler
+
+Fonksiyonel komponentler, bir JavaScript işlevi olarak tanımlanır ve JSX döndürür. İşlev, bileşenin davranışını belirler ve JSX, bileşenin görüntüsünü oluşturur. Fonksiyonel komponentler, daha basit ve sade bir sözdizimine sahiptir ve genellikle state yönetimi veya yaşam döngüsü yöntemleri gerektirmez.
+
+```jsx
+import React from "react";
+
+function FunctionalComponent() {
+  return (
+    <div>
+      <h1>Hello, React!</h1>
+    </div>
+  );
+}
+
+export default FunctionalComponent;
+```
+
+### Sınıf Komponentleri
+
+Sınıf komponentleri, React.Component sınıfından türetilir ve JSX döndüren render() yöntemini içerir. Sınıf komponentleri, state yönetimi, yaşam döngüsü yöntemleri veya ref'ler gibi özellikleri kullanmak için daha esneklik sağlar.
+
+```jsx
+import React, { Component } from "react";
+
+class ClassComponent extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello, React!</h1>
+      </div>
+    );
+  }
+}
+
+export default ClassComponent;
+```
+
+React komponentlerini kullanmak için, bu komponentleri diğer bileşenlerde çağırabilir ve kullanabilirsiniz. Örneğin:
+
+```jsx
+import React from "react";
+import FunctionalComponent from "./FunctionalComponent";
+import ClassComponent from "./ClassComponent";
+
+function App() {
+  return (
+    <div>
+      <FunctionalComponent />
+      <ClassComponent />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Komponent Hiyerarşisi ve Veri Akışı
+
+React uygulamalarında, komponentler bir hiyerarşi oluşturur ve veri akışı bu hiyerarşi içinde gerçekleşir. Bir üst düzey bileşen, alt bileşenlerini içeren bir yapıda olabilir. Böylece, veri ve işlevsellik üst bileşenden alt bileşenlere doğru aktarılabilir.
+
+Veri akışı genellikle bir üst bileşenden alt bileşene doğru tek yönlüdür. Üst bileşen alt bileşenlere verileri props aracılığıyla geçirirken, alt bileşenler bu verilere props üzerinden erişir ve kullanır.
+
+Örnek olarak, bir üst bileşenin state'indeki verileri alt bileşenlere aktarmak:
+
+```jsx
+import React, { useState } from "react";
+import ChildComponent from "./ChildComponent";
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>Parent Component</h2>
+      <p>Count: {count}</p>
+      <ChildComponent count={count} />
+    </div>
+  );
+}
+
+export default ParentComponent;
+```
+
+Alt bileşen props üzerinden verilere erişebilir ve kullanabilir:
+
+```jsx
+import React from "react";
+
+function ChildComponent(props) {
+  return (
+    <div>
+      <h2>Child Component</h2>
+      <p>Received Count: {props.count}</p>
+    </div>
+  );
+}
+
+export default ChildComponent;
+```
+
+Bu örnek, komponent hiyerarşisi ve veri akışını göstermektedir. Veriler üst bileşenden alt bileşene doğru tek yönlü olarak aktarılır ve alt bileşenler bu verilere props üzerinden erişebilir.
+
+Bu bölümde, React komponentlerinin nasıl oluşturulduğunu, kullanıldığını ve komponent hiyerarşisi ile veri akışını öğrendik. Bu temel kavramlar, React uygulamalarınızı modüler ve yönetilebilir hale getirmenize yardımcı olacaktır.
+
+Bu şekilde, "Komponentler ve Komponent Yapısı" başlığı altında React komponentlerini fonksiyonel ve sınıf komponentleri olarak oluşturma ve kullanma konularını detaylı bir şekilde açıkladım. Ayrıca, komponent hiyerarşisi ve veri akışını örneklerle destekledim. Bu sayede, React bileşenlerinin yapısını ve kullanımını daha iyi anlayabilirsiniz.

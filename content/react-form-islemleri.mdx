@@ -1,0 +1,124 @@
+---
+title: "React Form İşlemleri"
+publishedAt: "2023-05-26 00:08"
+summary: "React Form İşlemleri"
+---
+
+React uygulamalarında form işlemleri yaparken, kullanıcı girişi, veri gönderimi ve doğrulama gibi işlemleri yönetmek önemlidir. Bu bölümde, React ile form işlemlerini ele alacak ve nasıl yönetileceğini öğreneceğiz.
+
+---
+
+## Kontrollü ve Kontrolsüz Bileşenler
+
+React form bileşenleri iki türde olabilir: kontrollü bileşenler ve kontrolsüz bileşenler.
+
+### Kontrollü Bileşenler
+
+Kontrollü bileşenler, form verilerini React bileşenlerinin state'inde tutarak yönetilen bileşenlerdir. Değerlerini `state` içinde saklayarak, herhangi bir değişiklikte `onChange` olayını kullanarak güncelleyebilirsiniz. Bu şekilde, form verilerini kontrol edebilir, doğrulayabilir ve manipüle edebilirsiniz.
+
+Örneğin, aşağıdaki örnekte bir kontrollü `<input>` bileşeni bulunmaktadır:
+
+```jsx
+import React, { useState } from "react";
+
+function ControlledInput() {
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  return <input type="text" value={value} onChange={handleChange} />;
+}
+
+export default ControlledInput;
+```
+
+Yukarıdaki örnekte, `<input>` bileşeni değeri `value` prop'u ile kontrol edilir ve her değişiklikte `handleChange` fonksiyonu çağrılırak bileşenin state'i güncellenir.
+
+### Kontrolsüz Bileşenler
+
+Kontrolsüz bileşenlerde, form verileri bileşenin state'ine bağlı değildir. Bunun yerine, bileşenin DOM ağacındaki doğrudan referansına dayanır. Kontrolsüz bileşenlerde, form verileri `ref` kullanılarak elde edilir.
+
+Örneğin, aşağıdaki örnekte bir kontrollü olmayan `<input>` bileşeni bulunmaktadır:
+
+```jsx
+import React, { useRef } from "react";
+
+function UncontrolledInput() {
+  const inputRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputRef.current.value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" ref={inputRef} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default UncontrolledInput;
+```
+
+Yukarıdaki örnekte, `<input>` bileşenine `ref` prop'u atanarak, form verisi `inputRef.current.value` ile elde edilir. Bileşenin state'i kullanılmaz, direkt olarak DOM referansı kullanılır.
+
+Kontrollü ve kontrolsüz bileşenler, farklı kullanım senaryolarına sahiptir. Kontrollü bileşenler, form verilerini tamamen React state'i üzerinden yönetmek için kullanılırken, kontrolsüz bileşenler DOM referansına dayanarak form verilerini elde etmek için kullanılır.
+
+Dilerseniz, ihtiyaçlarınıza uygun olarak kontrollü veya kontrolsüz bileşenleri kullanabilir ve React form işlemlerini bu şekilde yönetebilirsiniz.
+
+## Doğrulama ve Hata İşlemleri
+
+Form işlemlerinde, girdi verilerini doğrulama ve hata yönetimi önemlidir. React ile form doğrulama ve hata işlemleri yapmak için çeşitli kütüphaneler veya özel işlevler kullanılabilir. İşte bir örnek:
+
+```jsx
+import React, { useState } from "react";
+
+function LoginForm() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (username === "" || password === "") {
+      setError("Kullanıcı adı ve şifre gereklidir.");
+    } else {
+      setError("");
+
+      // Form verilerini gönderme işlemleri
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Kullanıcı Adı"
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Şifre"
+      />
+      {error && <p>{error}</p>}
+      <button type="submit">Giriş Yap</button>
+    </form>
+  );
+}
+
+export default LoginForm;
+```
+
+Yukarıdaki örnekte, `error` state'i kullanılarak hata mesajı yönetimi yapılır. `handleSubmit` fonksiyonunda, boş alanların kontrolü yapılır ve gerekli hata mesajı ayarlanır.
+
+React ile form işlemleri, kontrollü bileşenler ve doğrulama/hata işlemleri kullanılarak etkili bir şekilde yönetilebilir. Bu sayede kullanıcı girişi, veri gönderimi ve doğrulama gibi form işlemleri sorunsuz bir şekilde gerçekleştirilebilir.
+
+Bu şekilde, "React Form İşlemleri" başlığı altında React uygulamalarında form işlemlerini yönetmek için kullanılan kontrollü bileşenler ve doğrulama/hata işlemlerini açıklamış ve örnekler vermiş bulunmaktayız.

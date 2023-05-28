@@ -1,0 +1,42 @@
+---
+title: "React Projesi Oluşturma ve Temel Kavramlar"
+publishedAt: "2023-05-26 00:02"
+summary: "React Projesi Oluşturma ve Temel Kavramlar"
+---
+
+React projelerini oluşturmak ve React'in temel kavramlarını anlamak için bazı adımları izlememiz gerekmektedir. Bu bölümde, React projelerinin nasıl oluşturulacağını ve temel kavramları anlamak için ihtiyaç duyduğumuz bilgileri ele alacağız.
+
+---
+
+## Geliştirme Ortamının Kurulumu
+
+React projeleri oluşturmak ve geliştirmek için Node.js ve npm (Node Package Manager) kullanmamız gerekmektedir. İşletim sisteminize uygun olan Node.js sürümünü indirerek ve kurarak başlayabilirsiniz. Node.js kurulumuyla birlikte npm de otomatik olarak yüklenir.
+
+## React Projesinin Oluşturulması ve Yapılandırılması
+
+React projelerini oluşturmak için Vite'i kullanacağız. Vite, hızlı bir geliştirme deneyimi sunan bir React proje oluşturma aracıdır.
+
+1. İlk olarak, bir komut satırı (terminal) açın ve projenizi oluşturmak istediğiniz dizine gidin.
+2. Ardından, aşağıdaki komutu çalıştırarak Vite'i yükleyin ve yeni bir React projesi oluşturun:
+
+`npm init vite@latest my-react-app --template react`
+
+`my-react-app` yerine projenizin adını belirleyebilirsiniz.
+
+3. Proje oluşturulduktan sonra, proje dizinine gidin:
+   cd my-react-app
+4. Son olarak, React uygulamasını başlatmak için aşağıdaki komutu çalıştırın:
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+Bu komutlar, React uygulamanızı yerel bir sunucuda çalıştıracaktır. Tarayıcınızı açarak `http://localhost:3000` adresine giderek React uygulamanızı görebilirsiniz.
+
+## JSX ve React Komponentleri
+
+React, JSX adı verilen JavaScript ve HTML'nin bir kombinasyonunu kullanır. JSX, React komponentlerini tanımlamayı ve arayüzlerin nasıl görüneceğini açıkça ifade etmeyi kolaylaştırır.
+
+React komponentleri, React uygulamalarının temel yapı taşlarıdır. Bir komponent, belirli bir işlevi yerine getiren ve kendi içinde tuttuğu verileri yöneten bir JavaScript işlevi veya sınıfı olarak düşünülebilir. Komponentler, tekrar kullanılabilirliği ve modülerliği artırır.
+
+Bu bölümde, JSX sözdizimini kullanarak basit bir React komponenti oluşturmayı ve React komponentlerinin nasıl çalıştığını anlamayı öğreneceğiz.
