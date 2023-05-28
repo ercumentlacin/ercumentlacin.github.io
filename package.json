@@ -26,6 +26,7 @@
     "contentlayer": "^0.3.2",
     "daisyui": "^2.51.6",
     "eslint-config-next": "13.4.3",
+    "framer-motion": "^10.12.16",
     "gray-matter": "^4.0.3",
     "next": "13.4.3",
     "next-contentlayer": "^0.3.2",

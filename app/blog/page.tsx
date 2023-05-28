@@ -1,3 +1,4 @@
+import WithTransition from '@/components/layout/WithTransition';
 import { allBlogs } from 'contentlayer/generated';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <section>
+    <WithTransition>
       <h1 className="mb-5 font-serif text-3xl font-bold home-title">
         <Balancer>Blog</Balancer>
       </h1>
@@ -45,6 +46,6 @@ export default function BlogPage() {
             </div>
           </Link>
         ))}
-    </section>
+    </WithTransition>
   );
 }

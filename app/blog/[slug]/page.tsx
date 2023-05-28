@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger */
+import WithTransition from '@/components/layout/WithTransition';
 import { Mdx } from '@/components/mdx';
 import { allBlogs } from 'contentlayer/generated';
 import type { Metadata } from 'next';
@@ -61,7 +62,7 @@ export default async function Blog({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <section className="post-container">
+    <WithTransition className="post-container">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -78,6 +79,6 @@ export default async function Blog({ params }: Props) {
         <div className="mx-2 h-[0.2em] bg-ghost-700" />
       </div>
       <Mdx code={post.body.code} />
-    </section>
+    </WithTransition>
   );
 }

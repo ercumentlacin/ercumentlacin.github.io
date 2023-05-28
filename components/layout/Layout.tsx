@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+
 import Navbar from '../Navbar';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -7,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 mb-16">
         <Navbar />
       </header>
-      <main className="mt-6 flex min-w-0 flex-auto flex-col px-2 md:mt-0 md:px-0">
+      <main className="flex flex-col flex-auto min-w-0 px-2 mt-6 md:mt-0 md:px-0">
         {children}
       </main>
     </>

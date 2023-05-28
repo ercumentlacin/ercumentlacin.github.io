@@ -1,55 +1,61 @@
-"use client";
+'use client';
 
-import clsx from "clsx";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React from "react";
+import clsx from 'clsx';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navItems = {
-  "/": {
-    name: "home",
+  '/': {
+    name: 'home',
   },
-  "/about": {
-    name: "about",
+  '/about': {
+    name: 'about',
   },
-  "/blog": {
-    name: "blog",
+  '/blog': {
+    name: 'blog',
   },
 };
 
 export default function Navbar() {
-  let pathname = usePathname() || "/";
-  if (pathname.includes("/blog/")) {
-    pathname = "/blog";
+  let pathname = usePathname() || '/';
+  if (pathname.includes('/blog/')) {
+    pathname = '/blog';
   }
 
   return (
-    <nav className="rounded-box flex flex-col items-center border border-white/10 bg-main-900/30 backdrop-blur-sm sm:flex-row">
+    <nav className="flex flex-col items-center border rounded-box border-white/10 bg-main-900/30 backdrop-blur-sm sm:flex-row">
       <div className="">
         <Link
           href="/"
-          className="pointer flex h-12 select-none items-center px-3 text-xl font-bold transition-colors hover:text-ghost-500"
+          className="flex items-center h-12 px-3 text-xl font-bold transition-colors select-none pointer hover:text-ghost-500"
         >
           ercumentlacin
         </Link>
       </div>
 
-      <div className="flex w-full grow justify-end px-2 py-2 sm:py-0">
-        <ul className="flex w-full flex-col px-1 sm:w-auto sm:flex-row">
+      <div className="flex justify-end w-full px-2 py-2 grow sm:py-0">
+        <ul className="flex flex-col w-full px-1 sm:w-auto sm:flex-row">
           {Object.entries(navItems).map(([path, { name }]) => {
             const isActive = path === pathname;
             return (
-              <li key={path}>
+              <li key={path} className={clsx('px-[10px] py-[5px]')}>
                 <Link
                   href={path}
                   className={clsx(
-                    "transition-color flex w-full align-middle underline-offset-[.5em] duration-300 ease-in-out hover:text-ghost-500 sm:w-auto ",
+                    'transition-color flex w-full align-middle underline-offset-[.5em] duration-300 ease-in-out  sm:w-auto relative',
                     {
-                      "font-bold text-ghost-400 underline": isActive,
-                    }
+                      'font-bold text-ghost-400': isActive,
+                    },
                   )}
                 >
-                  <span className="relative px-[10px] py-[5px]">{name}</span>
+                  <span>{name}</span>
+                  {isActive ? (
+                    <motion.div
+                      className="absolute left-0 right-0 -bottom-[0.14em] h-[0.1em] bg-ghost-400"
+                      layoutId="underline"
+                    />
+                  ) : null}
                 </Link>
               </li>
             );
