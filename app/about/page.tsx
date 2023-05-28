@@ -1,6 +1,12 @@
 import WithTransition from '@/components/layout/WithTransition';
+import { Metadata } from 'next';
 import React from 'react';
 import { Balancer } from 'react-wrap-balancer';
+
+export const metadata: Metadata = {
+  title: 'About Me',
+  description: 'About Ercüment Laçın',
+};
 
 export default function AboutPage() {
   return (
