@@ -35,7 +35,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex justify-end w-full px-2 py-2 grow sm:py-0">
-        <ul className="flex flex-col w-full px-1 sm:w-auto sm:flex-row">
+        <ul className="flex w-full px-1 sm:w-auto sm:flex-row">
           {Object.entries(navItems).map(([path, { name }]) => {
             const isActive = path === pathname;
             return (
@@ -43,7 +43,7 @@ export default function Navbar() {
                 <Link
                   href={path}
                   className={clsx(
-                    'transition-color flex w-full align-middle underline-offset-[.5em] duration-300 ease-in-out  sm:w-auto relative',
+                    'transition-color flex align-middle underline-offset-[.5em] duration-300 ease-in-out  sm:w-auto relative w-max',
                     {
                       'font-bold text-ghost-400': isActive,
                     },
