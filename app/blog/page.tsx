@@ -29,10 +29,12 @@ export default function BlogPage() {
             href={`/blog/${post.slug}`}
           >
             <div className="flex flex-col w-full">
-              <p className="relative text-xl font-semibold w-max text-main-200 group-hover:text-ghost-500">
-                {post.title}
-                <span className="absolute -bottom-[0.05rem] left-0 h-[0.1rem] w-0 bg-ghost-500 transition-all duration-300 ease-in-out group-hover:w-full" />
-              </p>
+              <Balancer>
+                <p className="relative w-full text-xl font-semibold text-main-200 group-hover:text-ghost-500">
+                  {post.title}
+                  <span className="absolute -bottom-[0.05rem] left-0 h-[0.1rem] w-0 bg-ghost-500 transition-all duration-300 ease-in-out group-hover:w-full" />
+                </p>
+              </Balancer>
               <time
                 dateTime={new Date(post.publishedAt).toISOString()}
                 className="text-sm no-underline text-main-50/50"
