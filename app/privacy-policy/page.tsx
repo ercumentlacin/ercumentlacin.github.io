@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2>Overview</h2>
           <p>
-            Actuals ("the App") is designed with privacy as a core principle. We do not collect, store, or transmit any personal data from your device.
+            Actuals (&quot;the App&quot;) is designed with privacy as a core principle. We do not collect, store, or transmit any personal data from your device.
           </p>
         </section>
 
@@ -31,14 +31,14 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2>How Data is Stored</h2>
           <p>
-            All data — your projects, tasks, session timings, and focus estimates — is stored locally on your iPhone using Apple's SwiftData framework. This data never leaves your device and is protected by your device's built-in security measures.
+            All data — your projects, tasks, session timings, and focus estimates — is stored locally on your iPhone using Apple&apos;s SwiftData framework. This data never leaves your device and is protected by your device&apos;s built-in security measures.
           </p>
         </section>
 
         <section>
           <h2>Third-Party Services</h2>
           <p>
-            The App does not integrate with any analytics, advertising, or data collection services. The only external service used is Apple's App Store for in-app purchases (Pro Annual subscription and Pro Lifetime purchase), which is governed by Apple's privacy terms.
+            The App does not integrate with any analytics, advertising, or data collection services. The only external service used is Apple&apos;s App Store for in-app purchases (Pro Annual subscription and Pro Lifetime purchase), which is governed by Apple&apos;s privacy terms.
           </p>
         </section>
 
@@ -71,7 +71,7 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section>
-          <h2>Children's Privacy</h2>
+          <h2>Children&apos;s Privacy</h2>
           <p>
             The App does not knowingly collect personal information from anyone under 13 years of age. If we become aware that a child under 13 has provided us with personal information, we will immediately delete such information.
           </p>

@@ -16,7 +16,7 @@ export default function SupportPage() {
         <section>
           <h2>Getting Help</h2>
           <p>
-            Thank you for using Actuals! If you encounter any issues, have questions, or would like to provide feedback, we're here to help.
+            Thank you for using Actuals! If you encounter any issues, have questions, or would like to provide feedback, we&apos;re here to help.
           </p>
         </section>
 
@@ -66,9 +66,9 @@ export default function SupportPage() {
           <ol>
             <li>Open Settings on your iPhone</li>
             <li>Tap your Apple ID at the top</li>
-            <li>Select "Subscriptions"</li>
-            <li>Find "Actuals" and tap it</li>
-            <li>Tap "Cancel Subscription"</li>
+            <li>Select &quot;Subscriptions&quot;</li>
+            <li>Find &quot;Actuals&quot; and tap it</li>
+            <li>Tap &quot;Cancel Subscription&quot;</li>
           </ol>
 
           <h3>The app is crashing or not working</h3>
@@ -77,26 +77,26 @@ export default function SupportPage() {
           </p>
           <ol>
             <li>Force close the app and reopen it</li>
-            <li>Make sure you're running the latest version from the App Store</li>
+            <li>Make sure you&apos;re running the latest version from the App Store</li>
             <li>Restart your iPhone</li>
             <li>If the problem persists, contact support</li>
           </ol>
 
-          <h3>I'm not receiving alarm notifications</h3>
+          <h3>I&apos;m not receiving alarm notifications</h3>
           <p>
             Check your notification settings:
           </p>
           <ol>
             <li>Go to Settings → Notifications → Actuals</li>
             <li>Make sure notifications are enabled</li>
-            <li>Verify "Critical Alerts" is enabled if you want alarms when the app is closed</li>
+            <li>Verify &quot;Critical Alerts&quot; is enabled if you want alarms when the app is closed</li>
           </ol>
         </section>
 
         <section>
           <h2>Contact Support</h2>
           <p>
-            If you couldn't find an answer above, or if you have feedback or feature requests, please reach out:
+            If you couldn&apos;t find an answer above, or if you have feedback or feature requests, please reach out:
           </p>
           <p>
             <strong>Email:</strong> <a href="mailto:forever.ducale@gmail.com">forever.ducale@gmail.com</a>
@@ -123,7 +123,7 @@ export default function SupportPage() {
         <section>
           <h2>Feedback and Feature Requests</h2>
           <p>
-            We'd love to hear your ideas! If you have suggestions for new features or improvements, contact us at{' '}
+            We&apos;d love to hear your ideas! If you have suggestions for new features or improvements, contact us at{' '}
             <a href="mailto:forever.ducale@gmail.com">forever.ducale@gmail.com</a>.
           </p>
         </section>
